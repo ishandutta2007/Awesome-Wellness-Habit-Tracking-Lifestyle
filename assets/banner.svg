@@ -1,0 +1,230 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="50%" stop-color="#0d1b2a"/>
+      <stop offset="100%" stop-color="#1b263b"/>
+    </linearGradient>
+
+    <!-- Card Background Gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.08)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.02)"/>
+    </linearGradient>
+
+    <!-- Glowing Accent Gradients -->
+    <linearGradient id="accentCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f5d4"/>
+      <stop offset="100%" stop-color="#00bbf9"/>
+    </linearGradient>
+
+    <linearGradient id="accentPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7209b7"/>
+      <stop offset="100%" stop-color="#f72585"/>
+    </linearGradient>
+
+    <linearGradient id="accentOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff9e00"/>
+      <stop offset="100%" stop-color="#ff5400"/>
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    .title {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      font-size: 42px;
+      fill: #ffffff;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      fill: #94a3b8;
+    }
+    .badge-text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      fill: #ffffff;
+    }
+    .metric-value {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      fill: #38bdf8;
+    }
+    .metric-label {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      fill: #64748b;
+    }
+
+    /* Ambient Pulsing Glow Orbs in Background */
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(1.15); }
+    }
+    .orb-1 {
+      transform-origin: 200px 80px;
+      animation: pulseGlow 8s ease-in-out infinite;
+    }
+    .orb-2 {
+      transform-origin: 1050px 280px;
+      animation: pulseGlow 10s ease-in-out infinite 2s;
+    }
+
+    /* Waveform heartbeat / habit streak line animation */
+    @keyframes dashCycle {
+      0% { stroke-dashoffset: 600; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .wave-line {
+      stroke-dasharray: 600;
+      animation: dashCycle 6s linear infinite;
+    }
+
+    /* Habit Checkmark Grid Floating Motion */
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .card-float {
+      animation: floatCard 6s ease-in-out infinite;
+    }
+    .card-float-delayed {
+      animation: floatCard 7s ease-in-out infinite 1.5s;
+    }
+
+    /* Activity Heatmap shimmer */
+    @keyframes cellShimmer {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+    .cell-1 { animation: cellShimmer 3s ease-in-out infinite; }
+    .cell-2 { animation: cellShimmer 3s ease-in-out infinite 0.6s; }
+    .cell-3 { animation: cellShimmer 3s ease-in-out infinite 1.2s; }
+    .cell-4 { animation: cellShimmer 3s ease-in-out infinite 1.8s; }
+  </style>
+
+  <!-- Deep Canvas Background -->
+  <rect width="1200" height="360" rx="16" fill="url(#bgGrad)"/>
+  <rect width="1200" height="360" rx="16" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+
+  <!-- Background Ambient Glows (Behind Everything) -->
+  <circle class="orb-1" cx="200" cy="80" r="160" fill="#4361ee" filter="url(#glow)" opacity="0.3"/>
+  <circle class="orb-2" cx="1020" cy="260" r="150" fill="#00f5d4" filter="url(#glow)" opacity="0.25"/>
+  <circle cx="650" cy="50" r="110" fill="#f72585" filter="url(#glow)" opacity="0.15"/>
+
+  <!-- Background Habit Matrix / Activity Heatmap Decor (Right side background) -->
+  <g opacity="0.45" transform="translate(760, 45)">
+    <!-- 4 rows x 8 cols of habit streak grid -->
+    <rect x="0" y="0" width="22" height="22" rx="5" fill="#1e293b"/>
+    <rect x="28" y="0" width="22" height="22" rx="5" fill="#00bbf9" class="cell-1"/>
+    <rect x="56" y="0" width="22" height="22" rx="5" fill="#00f5d4" class="cell-2"/>
+    <rect x="84" y="0" width="22" height="22" rx="5" fill="#1e293b"/>
+    <rect x="112" y="0" width="22" height="22" rx="5" fill="#4361ee" class="cell-3"/>
+    <rect x="140" y="0" width="22" height="22" rx="5" fill="#00f5d4" class="cell-4"/>
+    <rect x="168" y="0" width="22" height="22" rx="5" fill="#1e293b"/>
+    <rect x="196" y="0" width="22" height="22" rx="5" fill="#00bbf9" class="cell-1"/>
+
+    <rect x="0" y="28" width="22" height="22" rx="5" fill="#00f5d4" class="cell-2"/>
+    <rect x="28" y="28" width="22" height="22" rx="5" fill="#00bbf9" class="cell-3"/>
+    <rect x="56" y="28" width="22" height="22" rx="5" fill="#4361ee" class="cell-4"/>
+    <rect x="84" y="28" width="22" height="22" rx="5" fill="#00f5d4" class="cell-1"/>
+    <rect x="112" y="28" width="22" height="22" rx="5" fill="#1e293b"/>
+    <rect x="140" y="28" width="22" height="22" rx="5" fill="#00bbf9" class="cell-2"/>
+    <rect x="168" y="28" width="22" height="22" rx="5" fill="#00f5d4" class="cell-3"/>
+    <rect x="196" y="28" width="22" height="22" rx="5" fill="#4361ee" class="cell-4"/>
+
+    <rect x="0" y="56" width="22" height="22" rx="5" fill="#4361ee" class="cell-3"/>
+    <rect x="28" y="56" width="22" height="22" rx="5" fill="#1e293b"/>
+    <rect x="56" y="56" width="22" height="22" rx="5" fill="#00f5d4" class="cell-4"/>
+    <rect x="84" y="56" width="22" height="22" rx="5" fill="#00bbf9" class="cell-1"/>
+    <rect x="112" y="56" width="22" height="22" rx="5" fill="#00f5d4" class="cell-2"/>
+    <rect x="140" y="56" width="22" height="22" rx="5" fill="#4361ee" class="cell-3"/>
+    <rect x="168" y="56" width="22" height="22" rx="5" fill="#1e293b"/>
+    <rect x="196" y="56" width="22" height="22" rx="5" fill="#00f5d4" class="cell-4"/>
+  </g>
+
+  <!-- Interactive Dynamic Habit Streak Wave / Vital Signs Line -->
+  <path class="wave-line" d="M 680 180 Q 740 130 800 180 T 920 180 T 1040 180 T 1160 180" fill="none" stroke="url(#accentCyan)" stroke-width="2.5" opacity="0.6"/>
+
+  <!-- Right Side Floating UI Glass Cards (Visual Polish) -->
+  <g class="card-float" transform="translate(860, 160)">
+    <!-- Glass card container -->
+    <rect width="280" height="85" rx="14" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="1.2" backdrop-filter="blur(10px)"/>
+    <!-- Habit icon circle -->
+    <circle cx="45" cy="42" r="22" fill="#00f5d4" fill-opacity="0.15"/>
+    <circle cx="45" cy="42" r="16" fill="url(#accentCyan)"/>
+    <path d="M 39 42 L 43 46 L 51 38" fill="none" stroke="#0a0f1d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Text metric -->
+    <text x="80" y="38" class="metric-value">64 Days 🔥</text>
+    <text x="80" y="58" class="metric-label">Daily Meditation &amp; Routine Streak</text>
+  </g>
+
+  <g class="card-float-delayed" transform="translate(800, 260)">
+    <!-- Second glass card -->
+    <rect width="250" height="70" rx="12" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+    <!-- Mood Icon circle -->
+    <circle cx="36" cy="35" r="18" fill="url(#accentPurple)" opacity="0.85"/>
+    <text x="28" y="41" font-size="16">✨</text>
+    <text x="66" y="33" class="badge-text" fill="#f8fafc">Quantified-Self Sync</text>
+    <text x="66" y="50" class="metric-label">Health &amp; Offline-First Open Source</text>
+  </g>
+
+  <!-- FOREGROUND TEXT SECTION (Protected & Crystal Clear) -->
+  <g transform="translate(65, 80)">
+    <!-- Category Pill Tag -->
+    <g transform="translate(0, 0)">
+      <rect width="230" height="30" rx="15" fill="rgba(56, 189, 248, 0.12)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1"/>
+      <circle cx="16" cy="15" r="5" fill="#00f5d4" filter="url(#softGlow)"/>
+      <text x="28" y="20" class="badge-text" fill="#38bdf8">LIFESTYLE &amp; QUANTIFIED-SELF</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="75" class="title">Wellness &amp; Habit Tracking</text>
+
+    <!-- Subtitle / Tagline -->
+    <text x="0" y="112" class="subtitle">Curated directory of SaaS suites, streak engines, mood logs &amp; self-hosted apps.</text>
+
+    <!-- Category Highlights Pills (Foreground) -->
+    <g transform="translate(0, 142)">
+      <!-- Pill 1: Habit Streaks -->
+      <g>
+        <rect width="135" height="34" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+        <text x="14" y="22" class="badge-text">⚡ Habit Streaks</text>
+      </g>
+      <!-- Pill 2: Mood Journaling -->
+      <g transform="translate(145, 0)">
+        <rect width="150" height="34" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+        <text x="14" y="22" class="badge-text">🌱 Mood Journals</text>
+      </g>
+      <!-- Pill 3: Offline-First -->
+      <g transform="translate(305, 0)">
+        <rect width="145" height="34" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+        <text x="14" y="22" class="badge-text">🔒 Offline-First</text>
+      </g>
+      <!-- Pill 4: Open Source -->
+      <g transform="translate(460, 0)">
+        <rect width="140" height="34" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+        <text x="14" y="22" class="badge-text">⭐ Open-Source</text>
+      </g>
+    </g>
+  </g>
+</svg>
