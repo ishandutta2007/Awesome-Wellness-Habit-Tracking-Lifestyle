@@ -24,7 +24,7 @@ Whether you're looking for offline-first habit trackers 📱, gamified routine b
 - [📊 Sector Overview & Market Dynamics](#-sector-overview--market-dynamics)
 - [💼 Top SaaS & Mobile Apps](#-top-saas--mobile-apps)
 - [⭐ Open-Source GitHub Projects](#-open-source-github-projects)
-  - [🏆 Top Ranked by GitHub Stars](#-top-ranked-by-github-stars)
+  - [🏆 Top Ranked by GitHub_Stars](#-top-ranked-by-github-stars)
   - [📱 Mobile & Offline-First Habit Trackers](#-mobile--offline-first-habit-trackers)
   - [🌐 Self-Hosted & Web Streak Trackers](#-self-hosted--web-streak-trackers)
   - [🧠 Mood Journaling & Mental Wellness](#-mood-journaling--mental-wellness)
@@ -67,7 +67,7 @@ The following table lists leading commercial and freemium SaaS platforms in the 
 
 ## ⭐ Open-Source GitHub Projects
 
-### 🏆 Top Ranked by GitHub Stars
+### 🏆 Top Ranked by GitHub_Stars
 
 The open-source wellness ecosystem features self-hosted platforms, privacy-first mobile habit trackers, and local-first quantified-self tools. All repositories below are **ranked in descending order of GitHub stargazers**:
 
